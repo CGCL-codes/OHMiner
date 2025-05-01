@@ -198,7 +198,7 @@ void hypergraph::generate_hyperedge_candidates_unlable(Pattern *p, std::vector<i
     }
     int query_size = p->hyperedge2node[query_edge].size();
     if(nei.size() > 1){
-        intersect_smid512(hyperedgeAdj[nei[0]][query_size], hyperedgeAdj[nei[1]][query_size], candidate);
+        intersect_simd512(hyperedgeAdj[nei[0]][query_size], hyperedgeAdj[nei[1]][query_size], candidate);
     }
     else
         candidate = hyperedgeAdj[nei[0]][query_size];
@@ -209,7 +209,7 @@ void hypergraph::generate_hyperedge_candidates_unlable(Pattern *p, std::vector<i
          int l = csr[nei[i]][pos];
          int r = csr[nei[i]][pos + 1];
         std::vector<int>temp;
-        temp = intersect_simd512(candidate, hyperedge_adj[nei[i]], l, r);
+        temp = intersect(candidate, hyperedge_adj[nei[i]], l, r);
         candidate.swap(temp);
     }
 

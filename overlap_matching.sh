@@ -5,7 +5,7 @@ make -j
 cd ..
 
 dataset=("TC")
-datasetDir="../hypergraph/hypergraph_unlable/"
+datasetDir="./hypergraph/hypergraph_unlable/"
 patternDir="./pattern/"
 
 EdgeNum=(2 3 4 5)
